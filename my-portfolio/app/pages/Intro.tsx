@@ -1,46 +1,80 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 export function Intro() {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const target = ref.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            target.classList.add("intro-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.2, // 20% 보이면 발동
+      }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="section-2"
       className="
         h-[480px]
-        bg-white text-black
-        dark:bg-[#0D0E10] dark:text-gray-200
+        bg-gray-50 text-gray-900
+        dark:bg-[#050816] dark:text-white
         transition-colors duration-300
         flex items-center justify-center
+        py-20
       "
     >
-      <div className="mx-auto max-w-3xl px-6 text-center">
+      <div
+        ref={ref}
+        className="
+          opacity-0 translate-y-6 transition-all duration-[900ms]
+          ease-[cubic-bezier(0.22,0.61,0.36,1)]
+        "
+      >
+        <div className="mx-auto max-w-3xl px-6 text-center">
 
-        {/* 서브 헤드라인 */}
-        <p
-          className="
-            text-[18px] sm:text-[22px]
-            font-semibold
-            leading-[1.5]
-            text-gray-900 dark:text-gray-100
-          "
-        >
-          내가 만든 UI와 인터랙션을 한눈에 보고,
-          <br className="hidden sm:block" />
-          실제 서비스에 가까운 화면들을 한 곳에서 살펴보세요.
-        </p>
+          {/* 서브 헤드라인 */}
+          <p
+            className="
+              text-[18px] sm:text-[22px]
+              font-semibold
+              leading-[1.5]
+              text-gray-900 dark:text-gray-100
+            "
+          >
+            안녕하세요, 웹 표준과 접근성을 지켜
+            <br className="hidden sm:block" />
+            누구나 편하게 쓸 수 있는 웹/앱을 만드는 퍼블리셔입니다.
+          </p>
 
-        {/* 설명 */}
-        <p
-          className="
-            mt-4
-            text-[15px] sm:text-[20px]
-            leading-[1.7]
-            text-gray-600 dark:text-gray-400
-          "
-        >
-          구조적인 마크업과 디테일한 UI 구현,
-          <br className="hidden sm:block" />
-          토스 · 카카오 감성을 담은 웹 퍼블리셔 노유진의 작업을 소개합니다.
-        </p>
+          {/* 설명 */}
+          <p
+            className="
+              mt-4
+              text-[15px] sm:text-[20px]
+              leading-[1.7]
+              text-gray-600 dark:text-gray-400
+            "
+          >
+            트렌디한 디자인은 물론 안정적인 기능까지,
+            <br className="hidden sm:block" />
+            최고의 사용자 경험을 제공하기 위해 끊임없이 노력하고 있습니다.
+          </p>
+        </div>
       </div>
     </section>
   );

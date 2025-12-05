@@ -15,7 +15,7 @@ export function Button({ children, className, ...props }: ButtonProps) {
       className={cn(
         `
         inline-flex items-center justify-center
-        h-11 px-8 rounded-full
+        h-11 px-8 rounded-[12px]
         bg-white/10 dark:bg-white/10
         backdrop-blur-xl
         border border-white/20 dark:border-white/10

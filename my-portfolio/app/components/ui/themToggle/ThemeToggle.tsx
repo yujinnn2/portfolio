@@ -41,17 +41,30 @@ export default function ThemeToggle() {
           ${isDark ? "translate-x-[30px]" : "translate-x-0"}
         `}
       >
-        {isDark ? (
-          // 🌙 Moon icon
-          <svg
-            viewBox="0 0 24 24"
-            className="h-5 w-5"
-            fill="#2C2C2C"
-          >
-            <path d="M21 12.8A7.8 7.8 0 0 1 11.2 3a6.5 6.5 0 1 0 9.8 9.8z" />
-          </svg>
+       {isDark ? (
+         // 🌙 Toss-style bitten crescent moon
+         <svg
+           viewBox="0 0 24 24"
+           className="h-6 w-6"
+           aria-hidden="true"
+         >
+           <defs>
+             <mask id="theme-toggle-moon-cut">
+               <rect width="24" height="24" fill="white" />
+               <circle cx="16" cy="10" r="7" fill="black" />
+             </mask>
+           </defs>
+
+           {/* 메인 달 원: 진한 색 + 마스크 적용 */}
+           <circle
+             cx="11"
+             cy="13"
+             r="7.5"
+             fill="#2C2C2C"
+             mask="url(#theme-toggle-moon-cut)"
+           />
+         </svg>
         ) : (
-          // ☀️ Sun icon
           <svg
             viewBox="0 0 24 24"
             className="h-5 w-5"

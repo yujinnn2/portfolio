@@ -2,7 +2,7 @@ export default function Strength() {
   return (
     <main>
       <section
-        id="section-3"
+        id="section-strength"
         className="
           bg-gray-50 text-gray-900
           dark:bg-[#050816] dark:text-white

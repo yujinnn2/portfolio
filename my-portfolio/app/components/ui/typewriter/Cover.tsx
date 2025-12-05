@@ -2,7 +2,7 @@
 
 import { TypewriterEffect } from "./Typewriter-effect";
 import type { TypewriterWord } from "./Typewriter-effect";
-import { Button } from '@/app/components/ui/Button'
+import { Button } from "@/app/components/ui/Button";
 
 export function Cover() {
   const words: TypewriterWord[] = [
@@ -14,50 +14,58 @@ export function Cover() {
   ];
 
   return (
-    <div className="relative flex h-full flex-col items-center justify-center">
-      {/* Subtitle */}
-      <p className="mb-10 text-base text-neutral-600 dark:text-neutral-300">
-        Sophisticated UI for Perfect Interactions
-      </p>
+    <section
+      id="section-1"
+      className="
+        relative h-[100vh] snap-start w-full overflow-hidden
+        bg-gray-50 text-gray-900
+        dark:bg-[#050816] dark:text-white
+      "
+    >
+      <div className="flex h-full w-full flex-col items-center justify-center">
+        {/* Subtitle */}
+        <p className="mb-10 text-base text-neutral-600 dark:text-neutral-300">
+          Sophisticated UI for Perfect Interactions
+        </p>
 
-      {/* Typewriter */}
-      <TypewriterEffect words={words} />
+        {/* Typewriter */}
+        <TypewriterEffect words={words} />
 
-      {/* CTA buttons (글래스모피즘 적용된 버전) */}
-      <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
-        <Button>
-          포트폴리오 바로 보기
-        </Button>
+        {/* CTA buttons */}
+        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+          <Button>포트폴리오 바로 보기</Button>
+          <Button>이력서 다운로드</Button>
+        </div>
 
-        <Button>
-          이력서 다운로드
-        </Button>
-      </div>
-
-      {/* Scroll down arrow */}
-      <button
-        onClick={() => {
-          const next = document.getElementById("section-2");
-          next?.scrollIntoView({ behavior: "smooth" });
-        }}
-        className="
-          absolute bottom-12 left-1/2 -translate-x-1/2
-          flex h-8 w-14 items-center justify-center
-          text-blue-700 hover:text-blue-900
-          dark:text-blue-300 dark:hover:text-blue-200
-          transition-all duration-300
-        "
-      >
-        <svg
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          className="h-10 w-10"
+        {/* Scroll down arrow */}
+        <button
+          onClick={() => {
+            const next = document.getElementById("section-2");
+            next?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="
+            absolute bottom-12 left-1/2 -translate-x-1/2
+            flex h-8 w-14 items-center justify-center
+            text-blue-700 hover:text-blue-900
+            dark:text-blue-300 dark:hover:text-blue-200
+            transition-all duration-300
+          "
         >
-          <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
-    </div>
+          <svg
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            className="h-10 w-10"
+          >
+            <path
+              d="M6 9l6 6 6-6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
   );
 }

@@ -169,7 +169,7 @@ export function Career() {
 
   return (
     <section
-      id="section-6"
+      id="section-career"
       className="
         bg-gray-50 text-gray-900
         dark:bg-[#050816] dark:text-white

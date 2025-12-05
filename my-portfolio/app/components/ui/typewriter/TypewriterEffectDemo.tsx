@@ -1,5 +1,5 @@
 "use client";
-import { TypewriterEffect } from "./typewriter-effect";
+import { TypewriterEffect } from "./Typewriter-effect";
 
 export function Cover() {
   const words = [

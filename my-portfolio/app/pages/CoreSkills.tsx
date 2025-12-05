@@ -149,7 +149,7 @@ export const SKILLS: SkillItem[] = [
 
 export function CoreSkills() {
   const [activeFilter, setActiveFilter] = useState<SkillCategoryKey | "all">(
-    "frontend",
+    "all",
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -161,7 +161,7 @@ export function CoreSkills() {
   return (
     <>
       <section
-        id="skills"
+        id="section-skills"
         className="
           py-24
           bg-gray-50 text-gray-900

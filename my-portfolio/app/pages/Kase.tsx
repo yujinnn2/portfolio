@@ -6,7 +6,7 @@ export function SectionDashboard() {
       id="overview"
       className="relative bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18)_0,_transparent_55%),_linear-gradient(180deg,#05011a_0%,#020010_45%,#02000a_100%)]"
     >
-      <div className="mx-auto max-w-full px-6 sm:px-6">
+      <div className="mx-auto max-w-6xl px-6 sm:px-6">
         <header className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-[11px] uppercase tracking-[0.24em] text-white/45">

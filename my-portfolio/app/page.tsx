@@ -8,28 +8,31 @@ import ThemeToggle from '@/app/components/ui/themToggle/ThemeToggle'
 import { ExpandableCardDemo } from '@/app/components/ui/ExpandableCardDemo'
 import Strength from '@/app/pages/Strength'
 import { Career } from '@/app/pages/Career'
+import { Project } from '@/app/pages/Project'
+import { FloatingNav } from '@/app/components/ui/FloatingNav'
 
 
 export default function Home() {
   return (
     <main
-      className="min-h-screen bg-white text-black dark:bg-[#0D0D0E] dark:text-white transition-colors duration-300">
+      className="min-h-screen transition-colors duration-300">
       <header className="fixed top-5 right-5 z-100">
         <ThemeToggle/>
       </header>
+      <FloatingNav/>
       {/* section01 KV */}
-      <section className="relative h-screen snap-start flex items-center justify-center px-6 w-full overflow-hidden">
         <Cover />
-      </section>
       {/* section02 intro text */}
-      <Intro />
+        <Intro />
       {/* section03 Strength*/}
-      <Strength />
+        <Strength />
       {/* section04 Skills */}
-      <CoreSkills />
+        <CoreSkills />
       {/* section05 */}
+        <Career />
+      {/* section06 Projects */}
+      <Project />
       {/*<ExpandableCardDemo />*/}
-      <Career />
       {/*<SectionDashboard />*/}
     </main>
   );
