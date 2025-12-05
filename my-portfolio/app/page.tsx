@@ -6,7 +6,7 @@ import { Intro } from "@/app/pages/Intro";
 import { CoreSkills } from '@/app/pages/CoreSkills'
 import ThemeToggle from '@/app/components/ui/themToggle/ThemeToggle'
 import { ExpandableCardDemo } from '@/app/components/ui/ExpandableCardDemo'
-import Strength from '@/app/pages/Strength'
+import Strength from '@/app/pages/strength/Strength'
 import { Career } from '@/app/pages/Career'
 import { Project } from '@/app/pages/Project'
 import { FloatingNav } from '@/app/components/ui/FloatingNav'

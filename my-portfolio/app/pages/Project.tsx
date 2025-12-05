@@ -29,8 +29,8 @@ type Card = {
   src: string;
   title: string;
   category: string;
-  content: React.ReactNode; // 모달 내용
-  description?: string; // 카드 상단에 보이는 서브텍스트 (옵션)
+  content: React.ReactNode;
+  description?: string;
 };
 
 export const CarouselContext = createContext<{
@@ -47,7 +47,26 @@ export const CarouselContext = createContext<{
 
 const cards: Card[] = [
   {
-    src: "/images/project-admin.png",
+    // 지금 구조 기준: public/car_more.png
+    src: "/car_more.png",
+    title: "유진잉",
+    category: "Reservation · Settlement",
+    description: "예약, 입금, 정산까지 이어지는 여행사 업무 플로우를 설계했습니다.",
+    content: (
+      <div className="space-y-4 text-sm leading-relaxed text-neutral-700 dark:text-neutral-200">
+        <p>
+          여행 상품 예약부터 입금 확인, 정산까지 이어지는 플로우를 하나의 모듈로
+          설계했습니다.
+        </p>
+        <ul className="list-disc space-y-1 pl-4">
+          <li>예약 상태별 태그/컬러 시스템</li>
+          <li>정산 대기/완료 필터링 테이블</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    src: "/bpmarket.png",
     title: "TourMin Admin ERP",
     category: "Admin · ERP",
     description: "여행사 업무용 ERP로 근태·일정·예약·정산을 한 화면에서 관리해요.",
@@ -97,26 +116,6 @@ const cards: Card[] = [
         <ul className="list-disc space-y-1 pl-4">
           <li>실시간 API 연동을 고려한 카드형 위젯 레이아웃</li>
           <li>상태별 컬러 토큰(지각, 조퇴, 휴가 등) 설계</li>
-        </ul>
-      </div>
-    ),
-  },
-  {
-    // car_more.png 가 현재 public 바로 아래에 있다면 /car_more.png
-    // public/images/car_more.png 로 옮겼다면 /images/car_more.png 로 바꿔줘
-    src: "/car_more.png",
-    title: "유진잉",
-    category: "Reservation · Settlement",
-    description: "예약, 입금, 정산까지 이어지는 여행사 업무 플로우를 설계했습니다.",
-    content: (
-      <div className="space-y-4 text-sm leading-relaxed text-neutral-700 dark:text-neutral-200">
-        <p>
-          여행 상품 예약부터 입금 확인, 정산까지 이어지는 플로우를 하나의 모듈로
-          설계했습니다.
-        </p>
-        <ul className="list-disc space-y-1 pl-4">
-          <li>예약 상태별 태그/컬러 시스템</li>
-          <li>정산 대기/완료 필터링 테이블</li>
         </ul>
       </div>
     ),
@@ -187,7 +186,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           ref={carouselRef}
           onScroll={checkScrollability}
         >
-          {/* 오른쪽 페이드 (z-index 낮춰서 모달 아래로) */}
+          {/* 오른쪽 페이드 */}
           <div
             className={cn(
               "pointer-events-none absolute inset-y-0 right-0 h-full w-[8%] bg-gradient-to-l",
@@ -244,7 +243,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 };
 
 /* =========================
- * 카드 하나 (모달 + 전체 이미지 카드 — 그라데이션/블러 제거)
+ * 카드 하나
  * ========================= */
 
 export const ProjectCard = ({
@@ -264,7 +263,6 @@ export const ProjectCard = ({
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") handleClose();
     }
-
     document.body.style.overflow = open ? "hidden" : "auto";
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
@@ -275,6 +273,13 @@ export const ProjectCard = ({
     setOpen(false);
     onCardClose(index);
   };
+
+  // 바깥 클릭 시 닫기
+  useOutsideClick(containerRef, () => {
+    if (open) handleClose();
+  });
+
+  const isFullImageCard = card.title === "유진잉"; // 이 카드만 전체 이미지 카드
 
   return (
     <>
@@ -287,17 +292,17 @@ export const ProjectCard = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm"
+              className="fixed inset-0 bg-black/70 backdrop-blur-md"
             />
 
-            {/* 모달 박스 */}
+            {/* 모달 컨텐츠 */}
             <motion.div
               ref={containerRef}
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 shadow-xl md:p-10 dark:bg-[#020617]"
+              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 font-sans shadow-xl md:p-10 dark:bg-[#020617]"
             >
               <button
                 className="sticky top-4 right-0 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black/80 dark:bg-white/90"
@@ -326,46 +331,83 @@ export const ProjectCard = ({
         )}
       </AnimatePresence>
 
-      {/* 리스트 카드 — 그라데이션 없이 이미지 + 텍스트만 */}
+      {/* 리스트 카드 */}
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
         className={cn(
-          "group relative flex h-[500px] w-[400px] overflow-hidden",
-          "rounded-[28px]",
-          "shadow-[0_4px_16px_rgba(15,23,42,0.08)]",
-          "hover:-translate-y-[6px] hover:shadow-[0_10px_30px_rgba(15,23,42,0.16)]",
+          "group relative flex h-[360px] w-[260px] flex-col overflow-hidden",
+          "rounded-[18px] text-left shadow-[0_4px_16px_rgba(15,23,42,0.08)]",
           "transition-all duration-300 ease-out",
-          "md:h-[400px] md:w-[280px]",
+          "hover:-translate-y-[6px] hover:shadow-[0_10px_30px_rgba(15,23,42,0.16)]",
+          "md:h-[460px] md:w-[340px]",
+          !isFullImageCard && "bg-white dark:bg-[#0B0D10]",
         )}
       >
-        {/* 전체 이미지 */}
-        <BlurImage
-          src={card.src}
-          alt={card.title}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-
-        {/* 텍스트 오버레이 (배경 효과 없음) */}
-        <div className="absolute inset-0 flex flex-col justify-between p-5 text-white">
-          <p className="text-[12px] font-medium opacity-80">{card.category}</p>
-
-          <div>
-            <p className="text-[20px] font-semibold leading-snug">{card.title}</p>
-            {card.description && (
-              <p className="mt-2 text-[13px] leading-relaxed opacity-90">
-                {card.description}
+        {isFullImageCard ? (
+          /* ✅ 유진잉: 전체 이미지 + 텍스트 오버레이 (텍스트 상단 정렬) */
+          <div className="relative h-full w-full">
+            <BlurImage
+              src={card.src}
+              alt={card.title}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 flex flex-col justify-start p-5 text-black">
+              {/* 카테고리 */}
+              <p className="text-[11px] font-medium opacity-80">
+                {card.category}
               </p>
-            )}
+
+              {/* 제목 + 설명 */}
+              <div className="mt-3">
+                <p className="text-[20px] font-semibold leading-snug">
+                  {card.title}
+                </p>
+                {card.description && (
+                  <p className="mt-2 text-[13px] leading-relaxed opacity-90">
+                    {card.description}
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          /* ✅ 나머지 카드: 상단 텍스트, 하단 이미지 (Apple 스타일) */
+          <>
+            <div className="flex flex-1 flex-col bg-white px-6 pt-6 pb-4 dark:bg-[#0B0D10]">
+              <p className="text-[11px] font-medium text-neutral-500 dark:text-neutral-400">
+                {card.category}
+              </p>
+              <p className="mt-2 text-[18px] font-semibold text-neutral-900 leading-snug dark:text-neutral-50">
+                {card.title}
+              </p>
+              {card.description && (
+                <p className="mt-2 text-[13px] leading-relaxed text-neutral-600 dark:text-neutral-400">
+                  {card.description}
+                </p>
+              )}
+            </div>
+
+            <div className="relative h-[280px] w-full overflow-hidden bg-neutral-100 dark:bg-[#050816]">
+              <BlurImage
+                src={card.src}
+                alt={card.title}
+                className="
+    h-full w-full
+    object-cover object-top
+    transition duration-300
+  "
+              />
+            </div>
+          </>
+        )}
       </motion.button>
     </>
   );
 };
 
 /* =========================
- * 섹션 컴포넌트
+ * 섹션
  * ========================= */
 
 export const Project = () => {
@@ -378,7 +420,7 @@ export const Project = () => {
       id="section-project"
       className="py-28 bg-gray-50 dark:bg-[#050816] transition-colors duration-300"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-[15px] font-semibold text-blue-500">Projects</p>
           <h2 className="mt-3 text-[26px] sm:text-[32px] font-bold leading-tight text-gray-900 dark:text-white">
@@ -396,7 +438,7 @@ export const Project = () => {
 };
 
 /* =========================
- * BlurImage (블러 제거)
+ * BlurImage
  * ========================= */
 
 type BlurImageProps = {

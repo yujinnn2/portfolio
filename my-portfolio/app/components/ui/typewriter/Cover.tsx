@@ -19,7 +19,7 @@ export function Cover() {
       className="
         relative h-[100vh] snap-start w-full overflow-hidden
         bg-gray-50 text-gray-900
-        dark:bg-[#050816] dark:text-white
+        dark:bg-[#050816] dark:text-white max-h-[1080px]
       "
     >
       <div className="flex h-full w-full flex-col items-center justify-center">
@@ -32,9 +32,9 @@ export function Cover() {
         <TypewriterEffect words={words} />
 
         {/* CTA buttons */}
-        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
-          <Button>포트폴리오 바로 보기</Button>
+        <div className="mt-[100px] flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
           <Button>이력서 다운로드</Button>
+          <Button>제안 하기</Button>
         </div>
 
         {/* Scroll down arrow */}
