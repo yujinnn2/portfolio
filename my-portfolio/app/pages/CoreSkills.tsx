@@ -37,116 +37,245 @@ const CATEGORY_BASE_DELAY: Record<SkillCategoryKey, number> = {
   design: 0.18,
 };
 
+// ============================
 // 실제 기술 스택 데이터
+// ============================
 export const SKILLS: SkillItem[] = [
-  // ===== 프런트엔드 =====
+  // ===== 프런트엔드 기본 =====
   {
     id: 1,
     category: "frontend",
-    title: "JavaScript (ES6+)",
+    title: "HTML5",
     description:
-      "동적 UI 구현, 이벤트 처리, 비동기 흐름 제어 등 인터랙션 중심 개발 경험을 보유하고 있습니다.",
+      "시맨틱 태그와 웹 표준을 기반으로 구조적인 마크업을 작성합니다.",
   },
   {
     id: 2,
     category: "frontend",
-    title: "TypeScript",
+    title: "CSS3",
     description:
-      "타입 시스템을 활용해 컴포넌트 재사용성과 유지보수성을 높인 실무 경험이 있습니다.",
+      "레이아웃, 타이포그래피, 트랜지션 등을 활용해 반응형 스타일을 구현합니다.",
   },
   {
     id: 3,
     category: "frontend",
-    title: "HTML5 · CSS3",
+    title: "JavaScript",
     description:
-      "시맨틱 마크업과 구조적인 CSS 설계를 통해 접근성과 확장성을 고려한 화면을 만듭니다.",
+      "ES6+ 문법과 DOM 제어를 활용해 사용자 인터랙션 중심의 UI를 구현합니다.",
   },
   {
     id: 4,
     category: "frontend",
-    title: "Responsive Web",
+    title: "TypeScript",
     description:
-      "모바일·데스크톱 대응 레이아웃 구성, 그리드/플렉스 기반 반응형 구현 경험.",
+      "타입 시스템을 활용해 대규모 컴포넌트의 안정성과 유지보수성을 높였습니다.",
   },
 
-
-  // ===== 라이브러리 =====
+  // ===== 라이브러리 & 프레임워크 =====
   {
     id: 5,
     category: "library",
-    title: "React.js",
+    title: "React",
     description:
-      "컴포넌트 설계, 상태 관리, Hook 기반 UI 개발 등 실 서비스 수준의 화면을 구현합니다.",
+      "컴포넌트 기반 설계와 Hook 중심으로 실제 서비스 화면을 개발했습니다.",
   },
   {
     id: 6,
     category: "library",
     title: "Next.js",
     description:
-      "페이지 라우팅, 서버 컴포넌트, SEO 최적화 등 최신 Next.js 환경으로 개발하고 있습니다.",
+      "파일 기반 라우팅, 서버 컴포넌트, SEO를 고려한 SPA/SSR 환경을 구축했습니다.",
   },
   {
     id: 7,
     category: "library",
-    title: "Tailwind CSS",
+    title: "Sass(SCSS)",
     description:
-      "디자인 시스템과 연동된 유틸리티 스타일링으로 일관된 UI를 빠르게 구축합니다.",
+      "변수, 믹스인, 중첩 등을 활용해 재사용성 높은 스타일 구조를 설계했습니다.",
   },
   {
     id: 8,
     category: "library",
-    title: "GSAP",
+    title: "Tailwind CSS",
     description:
-      "스크롤 및 트랜지션 모션을 활용해 자연스러운 인터랙션을 구현합니다.",
+      "디자인 토큰과 결합해 일관된 UI를 빠르게 구축하는 유틸리티 기반 스타일링을 사용합니다.",
   },
-
-  // ===== 환경 및 배포 =====
   {
     id: 9,
-    category: "devops",
-    title: "Git · Github",
+    category: "library",
+    title: "jQuery",
     description:
-      "브랜치 전략, PR 리뷰, 협업 중심 버전 관리 경험을 보유하고 있습니다.",
+      "레거시 프로젝트에서 DOM 조작과 이벤트 핸들링 중심으로 유지·보수 경험이 있습니다.",
   },
   {
     id: 10,
-    category: "devops",
-    title: "Vercel",
+    category: "library",
+    title: "Bootstrap 5",
     description:
-      "Next.js 기반 자동 배포, 프리뷰 환경 구성, 간단한 도메인 설정 경험.",
+      "그리드 시스템과 컴포넌트를 활용해 빠르게 반응형 레이아웃을 구성했습니다.",
   },
   {
     id: 11,
-    category: "devops",
-    title: "Node 환경 이해",
+    category: "library",
+    title: "emotion",
     description:
-      "패키지 관리, 빌드 스크립트 이해 등 프론트엔드 개발 환경 구성 경험.",
+      "CSS-in-JS 방식으로 컴포넌트 단위 스타일을 관리하고 테마를 적용했습니다.",
   },
-
-  // ===== 디자인 =====
   {
     id: 12,
-    category: "design",
-    title: "Figma",
+    category: "library",
+    title: "styled-components",
     description:
-      "컴포넌트 기반 디자인 시안 분석, 디자인 시스템 이해 및 협업 경험.",
+      "컴포넌트 단위 스타일링과 props 기반 스타일 분기를 통해 재사용 가능한 UI를 만들었습니다.",
   },
   {
     id: 13,
-    category: "design",
-    title: "UX / UI 관점",
+    category: "library",
+    title: "antd",
     description:
-      "실제 사용 흐름을 고려한 화면 구조와 인터랙션 설계를 중요하게 생각합니다.",
+      "엔터프라이즈 UI 컴포넌트를 도입해 관리형 화면을 빠르게 구성한 경험이 있습니다.",
   },
   {
     id: 14,
-    category: "design",
-    title: "Design System Bridge",
+    category: "library",
+    title: "GSAP",
     description:
-      "디자인 시스템과 프론트엔드를 연결하는 퍼블리셔/FE 브릿지 역할에 관심이 있습니다.",
+      "스크롤 트리거와 타임라인을 이용해 자연스러운 모션과 인터랙션을 구현했습니다.",
+  },
+  {
+    id: 15,
+    category: "library",
+    title: "Radix UI",
+    description:
+      "접근성 기반 프리미티브를 활용해 Dialog, Dropdown, Checkbox 등 핵심 UI를 커스터마이징했습니다.",
+  },
+  {
+    id: 16,
+    category: "library",
+    title: "shadcn/ui",
+    description:
+      "shadcn 패턴을 참고해 Button, Input, Dialog 등 재사용 가능한 디자인 시스템 컴포넌트를 구성했습니다.",
+  },
+  {
+    id: 17,
+    category: "library",
+    title: "FullCalendar",
+    description:
+      "근태·일정·예약 데이터와 연동된 커스텀 이벤트 캘린더 화면을 구현했습니다.",
+  },
+  {
+    id: 18,
+    category: "library",
+    title: "TanStack Table",
+    description:
+      "정렬·필터·선택·rowSpan 등 ERP 스타일의 데이터 테이블을 구성했습니다.",
+  },
+  {
+    id: 19,
+    category: "library",
+    title: "React Hook Form",
+    description:
+      "폼 상태와 유효성 검사를 효율적으로 관리하는 입력 폼을 구현했습니다.",
+  },
+  // ===== 환경 · 배포 · 협업 도구 =====
+  {
+    id: 22,
+    category: "devops",
+    title: "Git",
+    description:
+      "브랜치 전략과 커밋 기록 관리를 통해 협업 가능한 히스토리를 유지합니다.",
+  },
+  {
+    id: 23,
+    category: "devops",
+    title: "GitHub",
+    description:
+      "Pull Request 기반 코드 리뷰와 협업 워크플로를 경험했습니다.",
+  },
+  {
+    id: 24,
+    category: "devops",
+    title: "Vercel",
+    description:
+      "Next.js 프로젝트를 연결해 자동 배포와 프리뷰 환경을 구성했습니다.",
+  },
+  {
+    id: 25,
+    category: "devops",
+    title: "Netlify",
+    description:
+      "정적 사이트를 빠르게 배포하고 간단한 빌드 설정을 관리한 경험이 있습니다.",
+  },
+  {
+    id: 26,
+    category: "devops",
+    title: "Node.js",
+    description:
+      "패키지 관리와 빌드 스크립트 실행 등 프론트엔드 개발 환경을 구성하는 데 사용했습니다.",
+  },
+  {
+    id: 27,
+    category: "devops",
+    title: "Monorepo",
+    description:
+      "공통 UI·유틸 패키지를 분리한 Monorepo 구조에서 작업하며 재사용성을 높였습니다.",
+  },
+  {
+    id: 28,
+    category: "devops",
+    title: "WordPress",
+    description:
+      "테마 커스터마이징과 플러그인 설정을 통해 CMS 기반 웹사이트를 구축한 경험이 있습니다.",
+  },
+  {
+    id: 29,
+    category: "devops",
+    title: "Notion",
+    description:
+      "요구사항 정리, 회의록, 작업 이력을 문서화하여 팀 협업에 활용했습니다.",
+  },
+  {
+    id: 30,
+    category: "devops",
+    title: "Trello",
+    description:
+      "보드·카드를 활용해 작업 우선순위와 일정 관리를 했습니다.",
+  },
+  {
+    id: 31,
+    category: "devops",
+    title: "IntelliJ IDEA",
+    description:
+      "대규모 프로젝트 탐색, 리팩터링, 디버깅에 최적화된 IDE 환경에서 작업했습니다.",
+  },
+
+  // ===== 디자인 도구 =====
+  {
+    id: 32,
+    category: "design",
+    title: "Figma",
+    description:
+      "디자인 시스템과 컴포넌트 구조를 이해하고, 시안 기반으로 화면을 구현했습니다.",
+  },
+  {
+    id: 33,
+    category: "design",
+    title: "Adobe Photoshop",
+    description:
+      "이미지 편집, 리터칭, 배너·썸네일 등 웹용 그래픽을 제작했습니다.",
+  },
+  {
+    id: 34,
+    category: "design",
+    title: "Adobe XD",
+    description:
+      "와이어프레임과 UI 시안을 확인하고, 프로토타입 흐름을 기반으로 퍼블리싱했습니다.",
   },
 ];
 
+// ============================
+// 컴포넌트
+// ============================
 export function CoreSkills() {
   const [activeFilter, setActiveFilter] = useState<SkillCategoryKey | "all">(
     "all",
@@ -281,7 +410,8 @@ export function CoreSkills() {
           ) : (
             // 단일 카테고리 필터일 때: 해당 카테고리 전체 스택
             (() => {
-              const catMeta = SKILL_CATEGORIES[activeFilter as SkillCategoryKey];
+              const catMeta =
+                SKILL_CATEGORIES[activeFilter as SkillCategoryKey];
               let indexInCategory = 0;
 
               const catSkills = filteredSkills; // 이미 필터된 상태

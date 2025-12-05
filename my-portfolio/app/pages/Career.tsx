@@ -16,39 +16,40 @@ type TimelineItem = {
 const experiences: TimelineItem[] = [
   {
     id: "exp-1",
-    period: "2024 - 현재",
-    title: "비상교육",
-    company: "글로벌 Company, 소프트웨어개발 Cell",
-    role: "Frontend Developer",
-    skills: ["JS", "TS", "React", "Next", "Node", "Git"],
+    period: "2025.10 - 현재",
+    title: "투어민",
+    company: "여행·레저 산업의 예약·운영을 통합 관리하는 기업 · 웹서비스팀",
+    role: "Publishing & Frontend",
+    skills: ["HTML", "CSS", "JS/TS", "Tailwind", "React", "Git"],
     details: [
-      "사내 서비스 웹 UI 개편 및 신규 화면 개발",
+      "사내 ERP 서비스(admin) / 서비스 페이지 신규 개발",
       "디자인 시스템 기반 공통 컴포넌트 설계 및 퍼블리싱",
       "운영 중인 서비스의 성능 및 접근성 개선",
     ],
   },
   {
     id: "exp-2",
-    period: "2022 - 2023",
-    title: "코드스테이츠",
-    company: "IT 교육 부트캠프 스타트업 · Internal System Product팀",
-    role: "Frontend Engineer",
-    skills: ["JS", "TS", "React", "Next", "Redux", "Storybook"],
+    period: "2025.08 - 2025.09",
+    title: "삼성전자",
+    company: "전자·IT 분야에서 혁신적인 제품과 서비스를 개발하는 글로벌 기업 · eCommerceInfra팀",
+    role: "회계/행정 담당",
+    skills: ["ERP", "SAP", "Invoice", "세금계산서", "예산", "정산"],
     details: [
-      "교육 관리자용 내부 어드민 시스템 UI 개발",
-      "디자인 가이드를 기반으로 재사용 가능한 UI 컴포넌트 구현",
-      "협업툴(Jira, Notion, GitHub)을 통한 애자일 업무 경험",
+      "SAP, ERP 회계 담당",
+      "DTI, Invoice 처리 및 예산, 정산 업무",
+      "인사, 복지, 총무, IT 등 전반적인 행정 업무",
     ],
   },
   {
     id: "exp-3",
-    period: "2021.09 - 11",
-    title: "스탠다드 로봇",
-    company: "홈페이지 제작 외주 · UI/UX 디자이너 및 Frontend 개발자",
-    skills: ["React", "SCSS", "Figma"],
+    period: "2022.02 - 2022.05",
+    title: "현대제철",
+    company: "철강 제조와 솔루션을 제공하는 국내 대표 철강 기업 · 상생소통팀",
+    role: "회사 홍보 및 마케팅",
+    skills: ["영어 담당", "회사소개", "현장견학", "총무"],
     details: [
-      "로봇 솔루션 홍보 웹사이트 퍼블리싱 및 인터랙션 구현",
-      "반응형 UI 및 브랜드 가이드에 기반한 화면 디자인",
+      "국내외 내방객 및 투자자 회사소개 및 사업장 견학",
+      "총무 업무",
     ],
   },
 ];
@@ -186,12 +187,10 @@ export function Career() {
         >
           <p className="text-[13px] font-semibold text-blue-400">경력 사항</p>
           <h2 className="text-[26px] sm:text-[30px] font-bold leading-tight">
-            다양한 업무와 프로젝트
-            <br className="hidden sm:block" />
-            경험과 노하우를 쌓고 있습니다.
+            경험을 연결해 더 나은 UI를 만듭니다.
           </h2>
           <p className="text-[13px] text-gray-500 dark:text-gray-400">
-            아래는 실제로 참여한 업무 경험과 프로젝트를 정리한 타임라인입니다.
+            다양한 경험의 폭을 기술의 깊이로 전환하고 있습니다
           </p>
         </motion.div>
 

@@ -10,6 +10,7 @@ export function Card({
   badge: string;
   title: string;
   description: string;
+  delay?: number;
 }) {
   return (
     <motion.div

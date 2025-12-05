@@ -22,15 +22,11 @@ export default function Strength() {
               핵심 역량
             </p>
             <h2 className="mt-3 text-[22px] sm:text-[26px] font-bold leading-tight">
-              유연하게 소통하고 견고하게 개발합니다.
+              문제는 명확하게, 해결은 깔끔하게.
             </h2>
           </div>
-
-          {/* 가로 배치 */}
           <div className="mt-14 flex flex-col gap-12 md:flex-row">
-            {/* ============================
-                BLOCK 1
-              ============================ */}
+            {/* Card 01 */}
             <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
               {/* 이미지 박스 */}
               <div
@@ -60,9 +56,7 @@ export default function Strength() {
                 컴포넌트화된 구조를 통해 재사용성과 유지보수 효율을 높입니다.
               </p>
             </div>
-            {/* ============================
-                BLOCK 2
-              ============================ */}
+            {/* Card 02 */}
             <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
               {/* 이미지 박스 */}
               <div
@@ -93,9 +87,7 @@ export default function Strength() {
                 안정적으로 동작하도록 꼼꼼히 검수합니다. 완성도를 높이는 작업에 가장 많은 시간을 투자합니다.
               </p>
             </div>
-            {/* ============================
-                BLOCK 1
-              ============================ */}
+            {/* Card 03 */}
             <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
               {/* 이미지 박스 */}
               <div
@@ -124,8 +116,6 @@ export default function Strength() {
                 마감일 안에 완성도 있는 결과물을 내는 것을 중요하게 생각합니다.
               </p>
             </div>
-
-
           </div>
         </div>
       </section>
