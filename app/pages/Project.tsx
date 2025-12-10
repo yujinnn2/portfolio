@@ -47,6 +47,38 @@ function SectionHeader({ children }: { children: React.ReactNode }) {
 }
 
 /* =========================
+ * 링크 Pill (공통 버튼 스타일)
+ * ========================= */
+
+function LinkPill({
+                    href,
+                    children,
+                  }: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center
+        rounded-full
+        px-3 py-1
+        text-[11px] font-medium
+        text-neutral-700 dark:text-neutral-100
+        bg-neutral-100 dark:bg-white/5
+        hover:bg-neutral-200 dark:hover:bg-white/10
+        transition-all duration-200
+      "
+    >
+      {children}
+    </a>
+  );
+}
+
+/* =========================
  * 카드 데이터
  * ========================= */
 
@@ -85,6 +117,36 @@ const cards: Card[] = [
             </span>
             Frontend · Web Publishing
           </p>
+
+          {/* 링크 pill (예정 자리 확보용) */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <span
+              className="
+                inline-flex items-center
+                rounded-full
+                px-3 py-1
+                text-[11px] font-medium
+                text-neutral-500 dark:text-neutral-400
+                bg-neutral-100 dark:bg-white/5
+                cursor-default
+              "
+            >
+              Admin 데모 (예정)
+            </span>
+            <span
+              className="
+                inline-flex items-center
+                rounded-full
+                px-3 py-1
+                text-[11px] font-medium
+                text-neutral-500 dark:text-neutral-400
+                bg-neutral-100 dark:bg-white/5
+                cursor-default
+              "
+            >
+              Notion 문서 (예정)
+            </span>
+          </div>
         </div>
 
         {/* 개요 */}
@@ -152,15 +214,6 @@ const cards: Card[] = [
             ))}
           </div>
         </section>
-
-        {/* 링크 */}
-        <section>
-          <SectionHeader>Links</SectionHeader>
-          <ul className="space-y-1.5 text-xs">
-            <li>· Admin 시연 영상 : 실제 데모 링크 예정</li>
-            <li>· Notion 문서 : 화면 플로우 & 도메인 정리 링크 예정</li>
-          </ul>
-        </section>
       </div>
     ),
   },
@@ -184,7 +237,7 @@ const cards: Card[] = [
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
               Period
             </span>
-            2024.03 – 2024.05
+            2025.03 – 2025.04
           </p>
           <p className="mt-1">
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
@@ -196,8 +249,17 @@ const cards: Card[] = [
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
               Role
             </span>
-            기획 · 디자인 협업 · 퍼블리싱
+            기획 · 디자인 · 퍼블리싱
           </p>
+
+          {/* 링크 pill */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <LinkPill href="https://carmore.netlify.app">Website</LinkPill>
+            <LinkPill href="https://github.com/yujinnn2/Carmore">Github</LinkPill>
+            <LinkPill href="https://www.figma.com/design/9BmQWx02HVXZIP1GCveXkF/Carmore_Portfolio?node-id=0-1&t=Dj2jNYuwokjgc9bQ-1">
+              Figma
+            </LinkPill>
+          </div>
         </div>
 
         {/* 개요 */}
@@ -262,14 +324,6 @@ const cards: Card[] = [
             ))}
           </div>
         </section>
-
-        <section>
-          <SectionHeader>Links</SectionHeader>
-          <ul className="space-y-1.5 text-xs">
-            <li>· Live URL : 실제 배포 주소로 교체 예정</li>
-            <li>· Github : car-landing 저장소 링크 예정</li>
-          </ul>
-        </section>
       </div>
     ),
   },
@@ -293,7 +347,7 @@ const cards: Card[] = [
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
               Period
             </span>
-            2023.01 – 2023.07
+            2025.05 – 2025.07
           </p>
           <p className="mt-1">
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
@@ -307,6 +361,19 @@ const cards: Card[] = [
             </span>
             Web Publishing · UI 구현
           </p>
+
+          {/* 링크 pill */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <LinkPill href="https://bupyeongmarket.netlify.app/">
+              Website
+            </LinkPill>
+            <LinkPill href="https://github.com/yujinnn2/Bupyeong_market">
+              Github
+            </LinkPill>
+            <LinkPill href="https://www.figma.com/design/8KRz3xBKJsv8dRlbHLVDmh/%ED%98%91%EC%97%85%EA%B3%BC%EC%A0%9C?node-id=0-1&t=wdbMp5GAAg16xXSa-1">
+              Figma
+            </LinkPill>
+          </div>
         </div>
 
         {/* 프로젝트 개요 */}
@@ -315,7 +382,7 @@ const cards: Card[] = [
           <p>
             노후된 부평종합시장 홈페이지를{" "}
             <span className="font-semibold">
-              “처음 들어온 방문자도 3초 안에 필요한 정보를 찾을 수 있는 사이트”
+              “트렌디하게 리뉴얼 해 누구나 쉽게 사용할 수 있는 사이트”
             </span>
             로 만드는 것이 목표였습니다. 메인 히어로, 이벤트, 상점 리스트,
             오시는 길 등 핵심 섹션의 우선순위를 다시 정리하고, 모바일 기준으로
@@ -374,15 +441,6 @@ const cards: Card[] = [
             ))}
           </div>
         </section>
-
-        {/* 링크 */}
-        <section>
-          <SectionHeader>Links</SectionHeader>
-          <ul className="space-y-1.5 text-xs">
-            <li>· Figma : 실제 디자인 링크로 교체 예정</li>
-            <li>· Github : bupyeong-market 저장소 링크 예정</li>
-          </ul>
-        </section>
       </div>
     ),
   },
@@ -406,7 +464,7 @@ const cards: Card[] = [
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
               Period
             </span>
-            2024.01 – 2024.03
+            2025.05 – 2025.06
           </p>
           <p className="mt-1">
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
@@ -420,6 +478,15 @@ const cards: Card[] = [
             </span>
             기획 · UI 설계 · 퍼블리싱
           </p>
+
+          {/* 링크 pill */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <LinkPill href="https://liveon1018.netlify.app">Website</LinkPill>
+            <LinkPill href="https://github.com/yujinnn2/Liv-ON">Github</LinkPill>
+            <LinkPill href="https://www.figma.com/design/eR9iJ2wgtY0Nvv6b4VWatf/Liv-ON_Portfolio?node-id=0-1&t=DhRIqltyz7KiOkpU-1">
+              Figma
+            </LinkPill>
+          </div>
         </div>
 
         {/* 개요 */}
@@ -484,14 +551,6 @@ const cards: Card[] = [
             ))}
           </div>
         </section>
-
-        <section>
-          <SectionHeader>Links</SectionHeader>
-          <ul className="space-y-1.5 text-xs">
-            <li>· Live URL : livon 인테리어 사이트 데모 링크 예정</li>
-            <li>· Github : livon-interior 저장소 링크 예정</li>
-          </ul>
-        </section>
       </div>
     ),
   },
@@ -515,7 +574,7 @@ const cards: Card[] = [
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
               Period
             </span>
-            2024.08 – 2024.09
+            2025.08 – 2025.08
           </p>
           <p className="mt-1">
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
@@ -529,6 +588,12 @@ const cards: Card[] = [
             </span>
             Web Publishing · Interaction 구현
           </p>
+
+          {/* 링크 pill */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <LinkPill href="https://yujintoss.netlify.app">Website</LinkPill>
+            <LinkPill href="https://github.com/yujinnn2/Carmore">Github</LinkPill>
+          </div>
         </div>
 
         {/* 개요 */}
@@ -588,14 +653,6 @@ const cards: Card[] = [
             ))}
           </div>
         </section>
-
-        <section>
-          <SectionHeader>Links</SectionHeader>
-          <ul className="space-y-1.5 text-xs">
-            <li>· Live URL : toss 클론 데모 링크 예정</li>
-            <li>· Github : toss-clone 저장소 링크 예정</li>
-          </ul>
-        </section>
       </div>
     ),
   },
@@ -619,7 +676,7 @@ const cards: Card[] = [
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
               Period
             </span>
-            2024.09 – 2024.10
+            2025.08 – 2025.08
           </p>
           <p className="mt-1">
             <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
@@ -633,6 +690,11 @@ const cards: Card[] = [
             </span>
             Web Publishing · Responsive Layout
           </p>
+
+          {/* 링크 pill */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <LinkPill href="https://yujinappple.netlify.app">Website</LinkPill>
+          </div>
         </div>
 
         {/* 개요 */}
@@ -690,14 +752,6 @@ const cards: Card[] = [
               </span>
             ))}
           </div>
-        </section>
-
-        <section>
-          <SectionHeader>Links</SectionHeader>
-          <ul className="space-y-1.5 text-xs">
-            <li>· Live URL : apple 클론 데모 링크 예정</li>
-            <li>· Github : apple-clone 저장소 링크 예정</li>
-          </ul>
         </section>
       </div>
     ),
@@ -924,21 +978,41 @@ export const ProjectCard = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 font-sans shadow-xl md:p-10 dark:bg-[#020617]"
+              className="
+                relative z-[60]
+                mx-auto my-6
+                w-[92vw] max-w-5xl
+                max-h-[85vh]
+                overflow-y-auto
+                rounded-3xl
+                bg-white font-sans shadow-xl
+                p-4 pt-10
+                md:my-10 md:p-10 md:pt-12
+                md:w-[80vw] md:max-h-[80vh]
+                dark:bg-[#020617]
+              "
             >
+              {/* 닫기 버튼 */}
               <button
                 type="button"
-                className="
-                  absolute top-3 right-3
-                  inline-flex h-8 w-8 items-center justify-center
-                  rounded-full
-                  bg-gray-100/80 hover:bg-gray-200
-                  dark:bg-white/5 dark:hover:bg-white/10
-                  text-gray-600 dark:text-gray-300
-                  cursor-pointer
-                  transition-all duration-150
-                "
                 onClick={handleClose}
+                className="
+                  pointer-events-auto
+                  absolute right-4 top-4 md:right-6 md:top-6
+                  inline-flex h-9 w-9 items-center justify-center
+                  rounded-full
+                  bg-white/80
+                  border border-black/5
+                  shadow-[0_10px_30px_rgba(15,23,42,0.20)]
+                  backdrop-blur-md
+                  text-gray-700
+                  hover:bg-white hover:shadow-[0_14px_40px_rgba(15,23,42,0.28)]
+                  dark:bg-white/5 dark:border-white/15
+                  dark:text-gray-200
+                  dark:hover:bg-white/10
+                  transition-all duration-200
+                  cursor-pointer
+                "
               >
                 <X size={16} strokeWidth={2} />
               </button>
