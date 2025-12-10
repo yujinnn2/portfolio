@@ -305,49 +305,64 @@ export function CoreSkills() {
             <p className="text-[13px] font-semibold text-blue-500 dark:text-blue-400">
               Skills
             </p>
-            <h2 className="mt-1 text-[24px] sm:text-[28px] font-bold leading-tight">
+            <h2 className="mt-1 text-[24px] sm:text-[26px] font-bold leading-tight">
               기술 스택
             </h2>
           </header>
 
-          {/* 🔹 필터 탭 - 가운데 정렬 + 텍스트 길이만큼 버튼 */}
-          <div className="mb-8 flex w-full flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full bg-gray-100/70 px-2 py-1.5 dark:bg-white/[0.03]">
+          {/* 🔹 필터 탭 - 모바일: 가로 스크롤 한 줄, 데스크탑: 가운데 정렬 */}
+          <div className="mb-8 flex w-full items-center justify-center">
+            <div
+              className="
+      inline-flex max-w-full items-center
+      gap-2 rounded-full bg-gray-100/70 px-2 py-1.5
+      dark:bg-white/[0.03]
+
+      overflow-x-auto whitespace-nowrap  /* 👈 한 줄 + 가로 스크롤 */
+      [-ms-overflow-style:none] [scrollbar-width:none]
+      [&::-webkit-scrollbar]:hidden      /* 스크롤바 숨기기 (지원 브라우저에서) */
+    "
+            >
+              {/* 전체 탭 */}
               <button
                 type="button"
                 onClick={() => setActiveFilter("all")}
                 className={`
-                  inline-flex items-center justify-center
-                  rounded-full px-3.5 py-1.5 text-[12px]
-                  transition-all cursor-pointer
-                  ${
+        inline-flex items-center justify-center
+        rounded-full
+        px-3 py-1 text-[11px] sm:px-3.5 sm:py-1.5 sm:text-[12px]
+        transition-all cursor-pointer
+        ${
                   activeFilter === "all"
                     ? "bg-white text-blue-600 shadow-sm dark:bg-blue-500/20 dark:text-blue-200"
                     : "text-gray-600 hover:bg-white/70 dark:text-gray-300 dark:hover:bg-white/[0.06]"
                 }
-                `}
+      `}
               >
                 전체
               </button>
 
+              {/* 카테고리 탭들 */}
               {CATEGORY_ORDER.map((key) => {
                 const cat = SKILL_CATEGORIES[key];
                 const isActive = activeFilter === key;
+
                 return (
                   <button
                     key={key}
                     type="button"
                     onClick={() => setActiveFilter(key)}
                     className={`
-                      inline-flex items-center justify-center
-                      rounded-full px-3.5 py-1.5 text-[12px]
-                      transition-all cursor-pointer
-                      ${
+            inline-flex items-center justify-center
+            rounded-full
+            px-3 py-1 text-[11px] sm:px-3.5 sm:py-1.5 sm:text-[12px]
+            transition-all cursor-pointer
+            ${
                       isActive
                         ? "bg-white text-blue-600 shadow-sm dark:bg-blue-500/20 dark:text-blue-200"
                         : "text-gray-600 hover:bg-white/70 dark:text-gray-300 dark:hover:bg-white/[0.06]"
                     }
-                    `}
+          `}
                   >
                     {cat.label}
                   </button>

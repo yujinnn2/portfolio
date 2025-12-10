@@ -1020,7 +1020,7 @@ export const Project = () => {
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-[13px] font-semibold text-blue-500">Projects</p>
-          <h2 className="mt-3 text-[24px] sm:text-[28px] font-bold leading-tight text-gray-900 dark:text-white">
+          <h2 className="mt-3 text-[24px] sm:text-[26px] font-bold leading-tight text-gray-900 dark:text-white">
             사용하는 사람이 가장 적게 고민하도록
           </h2>
           <p className="mt-3 text-[13px] text-gray-500 dark:text-gray-400">

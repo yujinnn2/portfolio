@@ -196,7 +196,7 @@ export function Career() {
           className="space-y-2 text-center"
         >
           <p className="text-[13px] font-semibold text-blue-400">경력 사항</p>
-          <h2 className="text-[24px] sm:text-[28px] font-bold leading-tight">
+          <h2 className="text-[26px] sm:text-[23px] font-bold leading-tight">
             경험을 연결해 더 나은 UI를 만듭니다.
           </h2>
           <p className="text-[13px] text-gray-500 dark:text-gray-400">

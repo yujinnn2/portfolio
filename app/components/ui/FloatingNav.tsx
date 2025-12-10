@@ -75,7 +75,7 @@ export function FloatingNav({ offset = 80 }: FloatingNavProps) {
           "dark:bg-white/8 dark:border-white/15 dark:shadow-[0_24px_80px_rgba(0,0,0,0.85)]"
         )}
       >
-        <nav className="flex items-center gap-2 text-[12px] sm:text-[13px] font-medium">
+        <nav className="flex items-center gap-2 text-[11px] sm:text-[12px] md:text-[13px] font-medium">
           {SECTIONS.map((tab) => {
             const isActive = active === tab.id;
 
@@ -93,7 +93,6 @@ export function FloatingNav({ offset = 80 }: FloatingNavProps) {
                   "dark:hover:bg-white/10 dark:hover:text-white cursor-pointer",
                   // 액티브 – 라이트/다크 각각 톤 맞춤
                   isActive && [
-                    // light
                     "bg-sky-500 text-white",
                     "dark:bg-white/90 dark:text-[#050816]",
                     "shadow-[0_10px_28px_rgba(56,189,248,0.55)] dark:shadow-[0_10px_32px_rgba(0,0,0,0.9)]",
@@ -110,7 +109,9 @@ export function FloatingNav({ offset = 80 }: FloatingNavProps) {
                     )}
                   />
                 )}
-                <span className="relative z-[1]">{tab.label}</span>
+                <span className="relative z-[1] whitespace-nowrap">
+                  {tab.label}
+                </span>
               </button>
             );
           })}

@@ -28,7 +28,7 @@ export function Intro() {
         });
       },
       {
-        threshold: 0.55, // 20% 보이면 발동
+        threshold: 0.85, // 20% 보이면 발동
       }
     );
 

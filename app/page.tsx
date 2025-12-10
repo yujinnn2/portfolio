@@ -33,7 +33,7 @@ export default function Home() {
         <Career />
       {/* section06 Projects */}
       <Project />
-      <FlipWordsDemo />
+      {/*<FlipWordsDemo />*/}
       <ScrollToTopButton />
     </main>
   );
