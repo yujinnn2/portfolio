@@ -84,7 +84,7 @@ function LinkPill({
 
 const cards: Card[] = [
   {
-    src: "/tourmin.png",
+    src: "/images/tourmin.png",
     title: "TourMin Admin ERP",
     category: "Admin · ERP",
     description:
@@ -118,34 +118,13 @@ const cards: Card[] = [
             Frontend · Web Publishing
           </p>
 
-          {/* 링크 pill (예정 자리 확보용) */}
           <div className="mt-3 flex flex-wrap gap-2">
-            <span
-              className="
-                inline-flex items-center
-                rounded-full
-                px-3 py-1
-                text-[11px] font-medium
-                text-neutral-500 dark:text-neutral-400
-                bg-neutral-100 dark:bg-white/5
-                cursor-default
-              "
-            >
-              Admin 데모 (예정)
-            </span>
-            <span
-              className="
-                inline-flex items-center
-                rounded-full
-                px-3 py-1
-                text-[11px] font-medium
-                text-neutral-500 dark:text-neutral-400
-                bg-neutral-100 dark:bg-white/5
-                cursor-default
-              "
-            >
-              Notion 문서 (예정)
-            </span>
+              <LinkPill href="https://www.figma.com/design/vMTWpuJH753EyR2r5BwYnM/TM_?node-id=0-1&t=Te0B34BLJQOGd0MN-1">
+              경력기술서
+            </LinkPill>
+            <LinkPill href="https://www.figma.com/design/vMTWpuJH753EyR2r5BwYnM/TM_?node-id=0-1&t=Te0B34BLJQOGd0MN-1">
+              Figma
+            </LinkPill>
           </div>
         </div>
 
@@ -218,7 +197,7 @@ const cards: Card[] = [
     ),
   },
   {
-    src: "/carmore1.png",
+    src: "/images/carmore1.png",
     title: "중고차·렌트카 랜딩페이지",
     category: "Landing · Marketing",
     description:
@@ -328,7 +307,7 @@ const cards: Card[] = [
     ),
   },
   {
-    src: "/bpmarket.png",
+    src: "/images/bpmarket.png",
     title: "부평종합시장 웹 페이지 리뉴얼",
     category: "Website · Renewal",
     description:
@@ -445,7 +424,7 @@ const cards: Card[] = [
     ),
   },
   {
-    src: "/liv_on.png",
+    src: "/images/liv_on.png",
     title: "가구·인테리어 사이트 기획 및 구현",
     category: "Website · UX/UI",
     description:
@@ -555,7 +534,7 @@ const cards: Card[] = [
     ),
   },
   {
-    src: "/toss.png",
+    src: "/images/toss.png",
     title: "Toss 홈페이지 클론 퍼블리싱",
     category: "Clone · Publishing",
     description:
@@ -657,7 +636,7 @@ const cards: Card[] = [
     ),
   },
   {
-    src: "/apple.png",
+    src: "/images/apple.png",
     title: "Apple 홈페이지 클론 퍼블리싱",
     category: "Clone · Publishing",
     description:
@@ -1049,6 +1028,7 @@ export const ProjectCard = ({
           "hover:-translate-y-[6px] hover:shadow-[0_10px_30px_rgba(15,23,42,0.16)]",
           "md:h-[460px] md:w-[340px]",
           "bg-white dark:bg-[#030610]",
+          "cursor-pointer",
         )}
       >
         <div className="flex flex-1 flex-col bg-white px-6 pt-6 pb-4 dark:bg-[#030610]">

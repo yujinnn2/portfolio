@@ -95,8 +95,40 @@ export function Cover() {
           </div>
 
           <div className="mt-[80px] flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
-            <Button>이력서 다운로드</Button>
-            <Button>제안 하기</Button>
+            <Button className="cursor-pointer"
+              onClick={() => {
+                // public/resume.pdf
+                window.open("/resume.pdf", "_blank");
+              }}
+            >
+              이력서 다운로드
+            </Button>
+            <Button className="cursor-pointer"
+              onClick={() => {
+                const to = "yujinee111@gmail.com";
+                const subject = "[퍼블리셔] 퍼블리셔 직무 제안 드립니다";
+                const body = [
+                  "안녕하세요, 노유진님.",
+                  "",
+                  "포트폴리오 잘 보았습니다.",
+                  "아래와 같은 제안을 드리고 싶어 연락드립니다.",
+                  "",
+                  "- 회사 / 브랜드명:",
+                  "- 담당자 성함:",
+                  "- 제안 내용:",
+                  "",
+                  "감사합니다.",
+                ].join("\n");
+
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+                  to
+                )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                window.open(gmailUrl, "_blank"); // 크롬 기준 Gmail 새 창 혹은 새 탭으로 열림
+              }}
+            >
+              제안 하기
+            </Button>
           </div>
         </div>
 
