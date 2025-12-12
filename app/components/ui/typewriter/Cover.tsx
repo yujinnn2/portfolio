@@ -19,7 +19,7 @@ export function Cover() {
     <section
       id="section-1"
       className="
-        relative h-[100vh] max-h-[1080px] w-full snap-start overflow-hidden
+        relative h-[100svh] max-h-[1080px] w-full snap-start overflow-hidden
         bg-gray-50 text-gray-900
         dark:bg-[#050816] dark:text-white
       "
@@ -79,13 +79,16 @@ export function Cover() {
       {/* 실제 콘텐츠 */}
       <div
         className="
-          relative mx-auto flex h-full w-full max-w-7xl flex-col
-          items-center justify-center px-6
-          lg:flex-row lg:justify-between
-        "
+    relative mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col
+    items-center justify-center px-6
+    text-center
+    lg:min-h-[100vh]
+    lg:flex-row lg:justify-between
+    lg:items-center lg:text-left
+  "
       >
         {/* Left (Text zone) */}
-        <div className="flex flex-col items-start text-left">
+        <div className="flex flex-col items-center lg:items-start">
           <p className="mb-6 text-base text-neutral-600 dark:text-neutral-300">
             Sophisticated UI for Perfect Interactions
           </p>

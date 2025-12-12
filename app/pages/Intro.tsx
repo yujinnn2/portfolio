@@ -12,23 +12,26 @@ export function Intro() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
+          const items =
+            entry.target.querySelectorAll<HTMLElement>(".intro-item");
 
-          // 내부의 애니메이션 대상 요소들 선택
-          const items = entry.target.querySelectorAll<HTMLElement>(".intro-item");
-
-          items.forEach((item, index) => {
-            // 순차 등장 딜레이
-            item.style.transitionDelay = `${index * 350}ms`;
-            item.classList.add("intro-visible");
-          });
-
-          // 한 번만 실행되게
-          observer.unobserve(entry.target);
+          if (entry.isIntersecting) {
+            // 들어올 때
+            items.forEach((item, index) => {
+              item.style.transitionDelay = `${index * 350}ms`;
+              item.classList.add("intro-visible");
+            });
+          } else {
+            // 나갈 때 → 다시 초기화
+            items.forEach((item) => {
+              item.style.transitionDelay = `0ms`;
+              item.classList.remove("intro-visible");
+            });
+          }
         });
       },
       {
-        threshold: 0.85, // 20% 보이면 발동
+        threshold: 0.6, // 살짝 낮추는 게 자연스러움
       }
     );
 

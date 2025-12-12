@@ -427,14 +427,6 @@ const cards: Card[] = [
       </div>
     ),
   },
-
-  // ✅ 이하 나머지 프로젝트들은 네 코드 그대로 (생략 없이 그대로 이어붙이면 됨)
-  // 너가 붙여준 긴 코드 그대로 유지해야 하니까,
-  // 이 아래로는 네가 올린 카드 내용(부평시장, liv_on, toss, apple...) 그대로 두면 돼.
-  // -------------------------------------------------------
-  // ⚠️ 여기서부터는 길어서 “너가 붙여준 원본 그대로” 이어붙이면 100% 동일.
-  // -------------------------------------------------------
-  // (아래는 너가 올린 그대로 계속...)
   {
     src: "/images/bpmarket.png",
     title: "부평종합시장 웹 페이지 리뉴얼",
@@ -550,9 +542,318 @@ const cards: Card[] = [
       </div>
     ),
   },
+  {
+    src: "/images/liv_on.png",
+    title: "가구·인테리어 사이트 기획 및 구현",
+    category: "Website · UX/UI",
+    description:
+      "가상 브랜드를 설정하고 상품 리스트·상세·컬렉션 페이지를 설계한 인테리어 웹사이트입니다.",
+    content: (
+      <div className="space-y-6 text-sm leading-relaxed text-neutral-800 dark:text-neutral-100">
+        {/* 메타 */}
+        <div className="border-y border-neutral-200 py-3 text-xs text-neutral-600 dark:border-neutral-700 dark:text-neutral-300">
+          <p>
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Client
+            </span>
+            개인 프로젝트 (가상 브랜드 LIVON)
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Period
+            </span>
+            2025.05 – 2025.06
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Type
+            </span>
+            Website · E-commerce 스타일
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Role
+            </span>
+            기획 · UI 설계 · 퍼블리싱
+          </p>
 
-  // ⚠️ liv_on / toss / apple도 너가 올린 내용 그대로 이어서 붙여 넣으면 끝.
-  // (여기 답변 길이 제한 때문에 전부를 1:1로 끝까지 재출력하면 메시지 터질 수 있어.)
+          {/* 링크 pill */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <LinkPill href="https://liveon1018.netlify.app">Website</LinkPill>
+            <LinkPill href="https://github.com/yujinnn2/Liv-ON">Github</LinkPill>
+            <LinkPill href="https://www.figma.com/design/eR9iJ2wgtY0Nvv6b4VWatf/Liv-ON_Portfolio?node-id=0-1&t=DhRIqltyz7KiOkpU-1">
+              Figma
+            </LinkPill>
+          </div>
+        </div>
+
+        {/* 개요 */}
+        <section>
+          <SectionHeader>프로젝트 개요</SectionHeader>
+          <p>
+            실제 가구 브랜드를 사용하는 느낌으로,{" "}
+            <span className="font-semibold">
+              컬렉션 중심의 감도 있는 쇼핑 경험
+            </span>
+            을 목표로 한 웹사이트입니다. 홈·카테고리·상품 상세·룩북 스타일
+            섹션 등을 설계하며, 상품 정보와 이미지 비율을 맞추는 데 신경 썼습니다.
+          </p>
+        </section>
+
+        {/* 주요 작업 */}
+        <section>
+          <SectionHeader>주요 작업</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 컬렉션/카테고리/상품 상세 3단 구조로 정보 설계</li>
+            <li>· 카드·그리드·모듈형 배너를 재사용 가능한 컴포넌트로 구현</li>
+            <li>· 여백과 타이포그래피를 활용한 미니멀한 레이아웃 구현</li>
+            <li>· 반응형 기준으로 2단/3단/1단 레이아웃 자연스럽게 전환</li>
+          </ul>
+        </section>
+
+        {/* 팀 구성 */}
+        <section>
+          <SectionHeader>팀 구성</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 개인 작업 (기획부터 UI 구현까지 단독 진행)</li>
+          </ul>
+        </section>
+
+        {/* 핵심 성과 */}
+        <section>
+          <SectionHeader>핵심 성과</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 쇼핑몰 스타일 레이아웃과 컴포넌트 구조 설계 경험 확보</li>
+            <li>· 브랜드 톤앤매너를 UI에 녹여내는 연습을 통해 디자인 감도 향상</li>
+            <li>· 이후 포트폴리오 사이트의 레이아웃 구성에도 직접적인 참고가 됨</li>
+          </ul>
+        </section>
+
+        {/* 사용 기술 */}
+        <section>
+          <SectionHeader>사용 기술</SectionHeader>
+          <div className="flex flex-wrap gap-2 text-[11px]">
+            {[
+              "HTML5",
+              "SCSS",
+              "JavaScript",
+              "Responsive Web",
+              "Figma 와이어프레임",
+            ].map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-neutral-200 bg-neutral-50 px-2 py-1 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </section>
+      </div>
+    ),
+  },
+  {
+    src: "/images/toss.png",
+    title: "Toss 홈페이지 클론 퍼블리싱",
+    category: "Clone · Publishing",
+    description:
+      "Toss 메인 페이지를 클론하며, 토스 스타일의 여백·타이포·모션을 퍼블리싱 관점에서 분석·구현했습니다.",
+    content: (
+      <div className="space-y-6 text-sm leading-relaxed text-neutral-800 dark:text-neutral-100">
+        {/* 메타 */}
+        <div className="border-y border-neutral-200 py-3 text-xs text-neutral-600 dark:border-neutral-700 dark:text-neutral-300">
+          <p>
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Client
+            </span>
+            개인 학습용 클론 프로젝트
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Period
+            </span>
+            2025.08 – 2025.08
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Type
+            </span>
+            Landing · Clone · Study
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Role
+            </span>
+            Web Publishing · Interaction 구현
+          </p>
+
+          {/* 링크 pill */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <LinkPill href="https://yujintoss.netlify.app">Website</LinkPill>
+            <LinkPill href="https://github.com/yujinnn2/Carmore">Github</LinkPill>
+          </div>
+        </div>
+
+        {/* 개요 */}
+        <section>
+          <SectionHeader>프로젝트 개요</SectionHeader>
+          <p>
+            토스 메인 페이지의{" "}
+            <span className="font-semibold">
+              “담백하지만 임팩트 있는 레이아웃·타이포·모션”
+            </span>
+            을 클론하면서, 실제 대기업 서비스가 어떻게 UI를 구성하는지
+            분석했습니다. 스크롤에 따라 자연스럽게 전환되는 섹션 구조와
+            히어로/CTA 배치를 구현했습니다.
+          </p>
+        </section>
+
+        {/* 주요 작업 */}
+        <section>
+          <SectionHeader>주요 작업</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 토스 메인 섹션 구조 분석 및 시맨틱 마크업으로 재구성</li>
+            <li>· 큰 타이포와 넓은 여백을 중심으로 한 레이아웃 퍼블리싱</li>
+            <li>· 스크롤 기반 페이드/슬라이드 모션을 GSAP 없이 CSS/JS로 구현</li>
+            <li>· 다크 모드 대응을 염두에 둔 컬러 토큰 설계 연습</li>
+          </ul>
+        </section>
+
+        {/* 팀 구성 */}
+        <section>
+          <SectionHeader>팀 구성</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 개인 작업, 디자인 레퍼런스는 Toss 공식 사이트 기반</li>
+          </ul>
+        </section>
+
+        {/* 핵심 성과 */}
+        <section>
+          <SectionHeader>핵심 성과</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 토스 특유의 타이포/여백/컬러 사용 방식을 퍼블리싱 관점에서 이해</li>
+            <li>· 섹션 단위로 재사용 가능한 레이아웃 패턴 정리</li>
+            <li>· 포트폴리오 사이트 메인 히어로 영역 설계에 직접적인 인사이트 제공</li>
+          </ul>
+        </section>
+
+        {/* 사용 기술 */}
+        <section>
+          <SectionHeader>사용 기술</SectionHeader>
+          <div className="flex flex-wrap gap-2 text-[11px]">
+            {["HTML5", "CSS3", "JavaScript", "Responsive Web"].map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-neutral-200 bg-neutral-50 px-2 py-1 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </section>
+      </div>
+    ),
+  },
+  {
+    src: "/images/apple.png",
+    title: "Apple 홈페이지 클론 퍼블리싱",
+    category: "Clone · Publishing",
+    description:
+      "애플 메인 페이지의 대형 비주얼·제품 강조 레이아웃을 분석하고, 반응형으로 재구성한 클론 퍼블리싱 작업입니다.",
+    content: (
+      <div className="space-y-6 text-sm leading-relaxed text-neutral-800 dark:text-neutral-100">
+        {/* 메타 */}
+        <div className="border-y border-neutral-200 py-3 text-xs text-neutral-600 dark:border-neutral-700 dark:text-neutral-300">
+          <p>
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Client
+            </span>
+            개인 학습용 클론 프로젝트
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Period
+            </span>
+            2025.08 – 2025.08
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Type
+            </span>
+            Landing · Clone · Visual
+          </p>
+          <p className="mt-1">
+            <span className="inline-block w-24 font-semibold text-neutral-900 dark:text-white">
+              Role
+            </span>
+            Web Publishing · Responsive Layout
+          </p>
+
+          {/* 링크 pill */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            <LinkPill href="https://yujinappple.netlify.app">Website</LinkPill>
+          </div>
+        </div>
+
+        {/* 개요 */}
+        <section>
+          <SectionHeader>프로젝트 개요</SectionHeader>
+          <p>
+            Apple 메인 페이지의 큰 비주얼과 간결한 카피 구조를{" "}
+            <span className="font-semibold">
+              시멘틱 마크업과 반응형 레이아웃으로 그대로 옮기는 것
+            </span>
+            을 목표로 진행한 클론 작업입니다. 섹션별로 이미지 비율, 텍스트
+            계층, 여백을 세밀하게 맞추는 데 집중했습니다.
+          </p>
+        </section>
+
+        {/* 주요 작업 */}
+        <section>
+          <SectionHeader>주요 작업</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 메인 히어로·제품 섹션의 레이아웃을 Grid/Flex 조합으로 구현</li>
+            <li>· 데스크톱/태블릿/모바일 브레이크포인트별 이미지 비율 조정</li>
+            <li>· Retina 이미지, 반응형 폰트 사이즈 등 디테일 퍼블리싱 연습</li>
+            <li>· 다크·라이트 테마에 자연스럽게 어울리는 배경/텍스트 대비 설계</li>
+          </ul>
+        </section>
+
+        {/* 팀 구성 */}
+        <section>
+          <SectionHeader>팀 구성</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 개인 작업, Apple 공식 사이트 레이아웃을 참고하여 구조 분석</li>
+          </ul>
+        </section>
+
+        {/* 핵심 성과 */}
+        <section>
+          <SectionHeader>핵심 성과</SectionHeader>
+          <ul className="space-y-1.5">
+            <li>· 대형 비주얼 중심 랜딩 페이지를 구조적으로 쪼개서 이해하는 경험</li>
+            <li>· 이미지/텍스트/여백 간 균형을 맞추는 시각적인 감각 향상</li>
+            <li>· 이후 포트폴리오 프로젝트 카드/히어로 섹션 설계에 directly 활용</li>
+          </ul>
+        </section>
+
+        {/* 사용 기술 */}
+        <section>
+          <SectionHeader>사용 기술</SectionHeader>
+          <div className="flex flex-wrap gap-2 text-[11px]">
+            {["HTML5", "CSS3", "JavaScript", "Responsive Web"].map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-neutral-200 bg-neutral-50 px-2 py-1 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </section>
+      </div>
+    ),
+  },
 ];
 
 /* =========================
