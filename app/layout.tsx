@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "진이꼬",
+  title: "포트폴리오_노유진",
   description: "Portfolio of 진이",
 };
 
